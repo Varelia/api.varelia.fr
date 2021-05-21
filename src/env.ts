@@ -1,7 +1,7 @@
 export default {
     state: 'development',
-    cors: ['https://varelia.lucas-mercier.digital', 'https://varelia.fr'],
+    cors: ['https://varelia.lucas-mercier.digital', 'https://varelia.fr', 'http://localhost:3000'],
     app: {
-        port: 3000
+        port: 8080
     }
 }
