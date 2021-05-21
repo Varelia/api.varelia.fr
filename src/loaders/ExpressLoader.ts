@@ -6,7 +6,9 @@ import env from '../env'
 
 const ExpressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     const express: Application = createExpressServer({
-        cors: true,
+        cors: {
+            origin: env.cors
+        },
         classTransformer: true,
         defaultErrorHandler: false,
 
