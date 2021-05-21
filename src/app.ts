@@ -1,9 +1,7 @@
 import 'reflect-metadata';
 
 import {bootstrapMicroframework} from 'microframework'
-import ExpressLoader from './loaders'
-import DependencyInjectionLoader from './loaders/DependencyInjectionLoader'
-
+import {DependencyInjectionLoader, ExpressLoader} from './loaders'
 bootstrapMicroframework([
     DependencyInjectionLoader,
     ExpressLoader
