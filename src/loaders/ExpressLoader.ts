@@ -9,7 +9,7 @@ const ExpressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | 
         classTransformer: true,
         defaultErrorHandler: false,
 
-        middlewares: [path.resolve(__dirname, '../api/middlewares/*.ts')]
+        middlewares: [path.resolve(__dirname, '../api/middlewares/**/*Middleware.ts')]
     })
     const server = express.listen(process.env.APP_PORT)
 
