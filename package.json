@@ -20,7 +20,7 @@
     "microframework": "^0.6.4",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
-    "typedi": "^0.10.0"
+    "typedi": "0.8.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
