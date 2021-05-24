@@ -1,11 +1,12 @@
-import {Get, JsonController, Param} from 'routing-controllers'
+import AbstractVoteRepository from './AbstractVoteRepository'
+import {Vote} from '../../entities'
+import {Service} from 'typedi'
 
-@JsonController('/vote')
-export default class VoteController {
+@Service()
+export default class MongoVoteRepository extends AbstractVoteRepository {
 
-    @Get('/list/:limit')
-    public getVotes(@Param('limit') limit: number) {
-        return [
+    fetchAllWithLimit(limit: number): Vote[] {
+        const votes = [
             {
                 nickname: 'Lucas__Lks',
                 votes: 458,
@@ -81,7 +82,11 @@ export default class VoteController {
                 votes: 55,
                 id: 15
             },
-        ].slice(0, limit)
+        ]
+
+        return votes
+            .map(vote => new Vote(vote.id, vote.nickname, vote.votes))
+            .slice(0, limit)
     }
 
 }
