@@ -14,7 +14,7 @@ export default class ListVotesPresenter implements Presenter {
 
     present(response: ListVotesResponse): void {
         this._votes = response.votes.map(
-            (vote: Vote) => ({...vote} as IVoteModel)
+            (vote: Vote) => ({nickname: vote.nickname, votes: vote.votes, id: vote.id})
         )
     }
 
