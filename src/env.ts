@@ -6,6 +6,6 @@ export default {
     controllers: [path.resolve(__dirname, './api/presentation/controllers/**/*Controller.ts')],
     middlewares: [path.resolve(__dirname, './api/presentation/middlewares/**/*Middleware.ts')],
     app: {
-        port: 80
+        port: 8080
     }
 }
