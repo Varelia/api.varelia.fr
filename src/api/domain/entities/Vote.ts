@@ -15,5 +15,5 @@ export default class Vote {
     address!: string
 
     @Column()
-    date_time_with_timezone!: Date;
+    created_at!: Date;
 }
