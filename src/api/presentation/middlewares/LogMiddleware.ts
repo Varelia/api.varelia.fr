@@ -1,7 +1,7 @@
 import * as express from 'express';
 import morgan from 'morgan';
 import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
-import {Logger} from '../../lib/Logger'
+import {Logger} from '../../../lib/Logger'
 
 @Middleware({ type: 'before' })
 export class LogMiddleware implements ExpressMiddlewareInterface {
