@@ -6,14 +6,14 @@ import {JsonView} from '../../../layer'
 export default class VoteController {
 
     @Get('/list/:limit')
-    public getVotes(@Param('limit') limit: number) {
+    public async getVotes(@Param('limit') limit: number) {
         const listVotesRequest: ListVotesRequest = new ListVotesRequest(limit)
         const listVotesPresenter: ListVotesPresenter = new ListVotesPresenter()
 
         const jsonView: JsonView = new JsonView()
         const listVotes: ListVotes = new ListVotes()
 
-        listVotes.execute(listVotesRequest, listVotesPresenter)
+        await listVotes.execute(listVotesRequest, listVotesPresenter)
         return jsonView.generate(listVotesPresenter.viewModel())
     }
 

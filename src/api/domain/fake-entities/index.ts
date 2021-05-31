@@ -1,0 +1,1 @@
+export { default as Voter } from './Voter'
