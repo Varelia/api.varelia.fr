@@ -5,6 +5,8 @@ dotenv.config({
     path: path.join(__dirname, '../.env')
 })
 
+console.log(path.join(__dirname, process.env.ORM_ENTITIES as string))
+
 export default {
     state: 'development',
     cors: ['https://varelia.lucas-mercier.digital'],
@@ -17,6 +19,7 @@ export default {
         driver: process.env.ORM_DRIVER || 'mysql',
         host: process.env.ORM_HOST || 'localhost',
         port: process.env.ORM_PORT || 3306,
+        entities: path.join(__dirname, process.env.ORM_ENTITIES as string),
         db: {
             username: process.env.ORM_DB_USERNAME || 'root',
             password: process.env.ORM_DB_PASSWORD || '',

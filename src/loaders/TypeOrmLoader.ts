@@ -13,7 +13,7 @@ const TypeOrmLoader: MicroframeworkLoader = async (settings: MicroframeworkSetti
         username: env.orm.db.username,
         password: env.orm.db.password,
         database: env.orm.db.name,
-        entities: [],
+        entities: [env.orm.entities],
         synchronize: env.orm.db.sync as boolean,
         logging: true
     }
