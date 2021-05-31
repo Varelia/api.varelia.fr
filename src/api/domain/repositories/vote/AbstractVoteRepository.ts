@@ -1,5 +1,7 @@
-import {Vote} from '../../entities'
-
 export default abstract class AbstractVoteRepository {
-    abstract fetchAllWithLimit(limit: number): Vote[]
+    abstract fetchAllWithLimit(limit: number): {
+        id: number,
+        nickname: string,
+        votes: number,
+    }[]
 }

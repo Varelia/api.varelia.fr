@@ -5,7 +5,11 @@ import {Service} from 'typedi'
 @Service()
 export default class MongoVoteRepository extends AbstractVoteRepository {
 
-    fetchAllWithLimit(limit: number): Vote[] {
+    fetchAllWithLimit(limit: number): {
+        id: number,
+        nickname: string,
+        votes: number,
+    }[] {
         const votes = [
             {
                 nickname: 'Lucas__Lks',
@@ -85,7 +89,11 @@ export default class MongoVoteRepository extends AbstractVoteRepository {
         ]
 
         return votes
-            .map(vote => new Vote(vote.id, vote.nickname, vote.votes))
+            .map(vote => ({
+                id: vote.id,
+                nickname: vote.nickname,
+                votes: vote.votes,
+            }))
             .slice(0, limit)
     }
 

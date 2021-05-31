@@ -1,15 +1,14 @@
 import {Response} from '../../../layer'
-import {Vote} from '../../domain/entities'
 
 export default class ListVotesResponse extends Response {
     constructor(
-        private _votes: Vote[],
+        private _votes: {}[],
         _errors: string[]
     ) {
         super(_errors)
     }
 
-    public get votes(): Vote[] {
+    public get votes(): {}[] {
         return this._votes
     }
 }
