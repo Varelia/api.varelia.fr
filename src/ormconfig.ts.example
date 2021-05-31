@@ -1,0 +1,15 @@
+import path from 'path'
+
+export default {
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'varelia',
+    entities: [path.join(__dirname, 'api/domain/entities/**/*.ts')],
+    seeds: [path.join(__dirname, 'api/domain/seeds/**/*.ts')],
+    factories: [path.join(__dirname, 'api/domain/factories/**/*.ts')],
+    synchronize: true,
+    logging: true
+}

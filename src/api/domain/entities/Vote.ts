@@ -1,10 +1,10 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {BeforeInsert, Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity()
 export default class Vote {
 
     @PrimaryGeneratedColumn()
-    id!: number
+    public id!: number
 
     @Column({
         length: 16
@@ -16,4 +16,10 @@ export default class Vote {
 
     @Column()
     created_at!: Date;
+
+    @BeforeInsert()
+    public addCreatedAt(): void {
+        this.created_at = new Date()
+    }
+
 }
