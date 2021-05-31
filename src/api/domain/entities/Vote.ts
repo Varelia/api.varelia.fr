@@ -1,27 +1,19 @@
+import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+
+@Entity()
 export default class Vote {
-    constructor(
-        private _id: number,
-        private _nickname: string,
-        private _votes: number
-    ) { }
 
-    public get id(): number {
-        return this._id
-    }
+    @PrimaryGeneratedColumn()
+    id!: number
 
-    public get nickname(): string {
-        return this._nickname
-    }
+    @Column({
+        length: 16
+    })
+    nickname!: string
 
-    public set nickname(nickname: string) {
-        this._nickname = nickname
-    }
+    @Column()
+    address!: string
 
-    public get votes(): number {
-        return this._votes
-    }
-
-    public set votes(votes: number) {
-        this._votes = votes
-    }
+    @Column()
+    date_time_with_timezone!: Date;
 }
