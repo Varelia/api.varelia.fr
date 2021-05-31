@@ -6,7 +6,10 @@ export default class User {
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column({length: 16})
+    @Column({
+        length: 16,
+        unique: true
+    })
     nickname!: string
 
     @Column()
