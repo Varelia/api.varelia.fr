@@ -25,8 +25,9 @@ export default class User {
     updated_at!: Date
 
     @BeforeInsert()
-    public addCreatedAdd() {
+    public addDates() {
         this.created_at = new Date()
+        this.updated_at = new Date()
     }
 
     @BeforeUpdate()
