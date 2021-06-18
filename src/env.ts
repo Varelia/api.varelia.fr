@@ -5,8 +5,6 @@ dotenv.config({
     path: path.join(__dirname, '../.env')
 })
 
-console.log(path.join(__dirname, process.env.ORM_ENTITIES as string))
-
 export default {
     state: 'development',
     cors: ['https://varelia.lucas-mercier.digital'],
