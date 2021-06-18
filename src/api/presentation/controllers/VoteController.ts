@@ -1,9 +1,7 @@
 import {BodyParam, Get, JsonController, Param, Post} from 'routing-controllers'
 import {ListVotes, ListVotesPresenter, ListVotesRequest} from '../../use-cases/list-votes'
 import {JsonView} from '../../../layer'
-import AddVoteRequest from '../../use-cases/add-vote/AddVoteRequest'
-import AddVotePresenter from '../../use-cases/add-vote/AddVotePresenter'
-import AddVote from '../../use-cases/add-vote/AddVote'
+import {AddVote, AddVotePresenter, AddVoteRequest} from '../../use-cases/add-vote'
 
 @JsonController('/vote')
 export default class VoteController {
