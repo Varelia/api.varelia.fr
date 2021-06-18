@@ -3,6 +3,7 @@ import {ListVotes, ListVotesPresenter, ListVotesRequest} from '../../use-cases/l
 import {JsonView} from '../../../layer'
 import {AddVote, AddVotePresenter, AddVoteRequest} from '../../use-cases/add-vote'
 import {DeleteVote, DeleteVotePresenter, DeleteVoteRequest} from '../../use-cases/delete-vote'
+import {UpdateVote, UpdateVotePresenter, UpdateVoteRequest} from '../../use-cases/update-vote'
 
 @JsonController('/vote')
 export default class VoteController {
@@ -40,7 +41,19 @@ export default class VoteController {
         const deleteVote: DeleteVote = new DeleteVote()
 
         await deleteVote.execute(deleteVoteRequest, deleteVotePresenter)
-        return jsonView.generate((deleteVotePresenter.viewModel()))
+        return jsonView.generate(deleteVotePresenter.viewModel())
+    }
+
+    @Delete('/:id')
+    public async updateVote(@Param('id') id: number, @BodyParam('nickname') nickname: string) {
+        const updateVoteRequest: UpdateVoteRequest = new UpdateVoteRequest(id, nickname)
+        const updateVotePresenter: UpdateVotePresenter = new UpdateVotePresenter()
+
+        const jsonView: JsonView = new JsonView()
+        const updateVote: UpdateVote = new UpdateVote()
+
+        await updateVote.execute(updateVoteRequest, updateVotePresenter)
+        return jsonView.generate(updateVotePresenter.viewModel())
     }
 
 }

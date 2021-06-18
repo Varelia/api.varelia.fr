@@ -13,4 +13,8 @@ export default class VoteRepository extends Repository<Vote> {
             .limit(limit)
     }
 
+    async findById(id: number) {
+        return (await this.findByIds([id]))[0]
+    }
+
 }
